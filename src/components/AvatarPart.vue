@@ -78,6 +78,7 @@ onMounted(() => {
   selectedImage.value =
     props.options[Math.floor(Math.random() * props.options.length)];
   // console.log(selectedImage.value);
+
   draw();
 });
 </script>
