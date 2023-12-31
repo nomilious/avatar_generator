@@ -68,8 +68,10 @@ const draw = () => {
       new_left = -image.width / 2;
       new_top = -image.height / 2;
     }
+
     // draw
     ctx.drawImage(image, new_left, new_top, image.width, image.height);
+    // console.log(selectedImage.value, new_left, new_top);
   };
 };
 
@@ -77,7 +79,6 @@ onMounted(() => {
   // get random image
   selectedImage.value =
     props.options[Math.floor(Math.random() * props.options.length)];
-  // console.log(selectedImage.value);
 
   draw();
 });

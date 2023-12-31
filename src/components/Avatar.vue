@@ -12,81 +12,18 @@
       </div>
     </main>
     <!-- mainpart   rendering is inside of AvatarPart-->
-    <AvatarPart
-      :options="backgroundOptions"
-      :canvasWidth="canvasWidth"
-      :canvasHeight="canvasHeight"
-      :canvasRef="canvas"
-    />
-    <AvatarPart
-      :options="headOptions"
-      :canvasWidth="canvasWidth"
-      :canvasHeight="canvasHeight"
-      :canvasRef="canvas"
-      :left="center"
-      :top="headTop"
-    />
-    <AvatarPart
-      :options="EyeOptions"
-      :canvasWidth="canvasWidth"
-      :canvasHeight="canvasHeight"
-      :canvasRef="canvas"
-      :left="center"
-      :top="eyesTop"
-    />
-
-    <AvatarPart
-      :options="bodyOptions"
-      :canvasWidth="canvasWidth"
-      :canvasHeight="canvasHeight"
-      :canvasRef="canvas"
-      :left="center"
-      :top="bodyTop"
-    />
-
-    <AvatarPart
-      :options="EyeBrowOptions"
-      :canvasWidth="canvasWidth"
-      :canvasHeight="canvasHeight"
-      :canvasRef="canvas"
-      :left="center"
-      :top="eyebrowsTop"
-    />
-    <AvatarPart
-      :options="GlassesOptions"
-      :canvasWidth="canvasWidth"
-      :canvasHeight="canvasHeight"
-      :canvasRef="canvas"
-      :left="center"
-      :top="glassesTop"
-    />
-
-    <AvatarPart
-      :options="MouthOptions"
-      :canvasWidth="canvasWidth"
-      :canvasHeight="canvasHeight"
-      :canvasRef="canvas"
-      :left="center"
-      :top="mouthTop"
-      :exceptions="MouthExcepions"
-    />
-    <AvatarPart
-      :options="hairOptions"
-      :canvasWidth="canvasWidth"
-      :canvasHeight="canvasHeight"
-      :canvasRef="canvas"
-      :left="center"
-      :top="hairTop"
-    />
-    <AvatarPart
-      :options="petOptions"
-      :canvasWidth="canvasWidth"
-      :canvasHeight="canvasHeight"
-      :canvasRef="canvas"
-      :left="petLeft"
-      :top="petTop"
-      :rotate="-20"
-    />
+    <template v-for="part in avatarParts">
+      <AvatarPart
+        :options="part.options"
+        :canvasWidth="canvasWidth"
+        :canvasHeight="canvasHeight"
+        :canvasRef="canvas"
+        :left="part.left || 0"
+        :top="part.top || 0"
+        :rotate="part.rotate || null"
+        :exceptions="part.exceptions || []"
+      />
+    </template>
   </div>
 </template>
 
@@ -122,6 +59,54 @@ const mouthTop = 225;
 const glassesTop = 192;
 const petTop = 300;
 const petLeft = 90;
+
+const avatarParts = [
+  {
+    options: backgroundOptions,
+  },
+  {
+    options: headOptions,
+    left: center,
+    top: headTop,
+  },
+  {
+    options: EyeOptions,
+    left: center,
+    top: eyesTop,
+  },
+  {
+    options: bodyOptions,
+    left: center,
+    top: bodyTop,
+  },
+  {
+    options: EyeBrowOptions,
+    left: center,
+    top: eyebrowsTop,
+  },
+  {
+    options: GlassesOptions,
+    left: center,
+    top: glassesTop,
+  },
+  {
+    options: MouthOptions,
+    left: center,
+    top: mouthTop,
+    exceptions: MouthExcepions,
+  },
+  {
+    options: hairOptions,
+    left: center,
+    top: hairTop,
+  },
+  {
+    options: petOptions,
+    left: petLeft,
+    top: petTop,
+    rotate: -20,
+  },
+];
 
 const regenerateAvatar = () => {
   componentKey.value++;
@@ -171,6 +156,7 @@ canvas {
 
 canvas {
   margin-bottom: 20px;
+  border: no;
 }
 
 .buttons-container {
