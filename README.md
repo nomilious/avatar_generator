@@ -1,28 +1,22 @@
-# lebedev_test
+# Avatar Generator
 
-This template should help get you started developing with Vue 3 in Vite.
+Тестовое задание для Студии Лебедева по созданию аватарок из составных частей.
+Веб-приложение генерирует случайный аватар для пользователя, который он может скачать в формате ПНГ размером в 440 пикселей, в ширину и высоту. Также пользователь может перегенерить картинку.
+[Компоненты](https://www.figma.com/file/kOb5S3SRK79qQnjVaETvtE/ironov-frontend-test-task?node-id=1732%3A1642&mode=dev)
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
+## Установить зависимости
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Запустить live-preview
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+### Скомпилировать для прода
 
 ```sh
 npm run build
