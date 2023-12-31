@@ -1,7 +1,12 @@
 <template class="container">
-  <div :key="componentKey">
+  <div>
     <main class="app-main">
-      <canvas ref="canvas" :width="canvasWidth" :height="canvasHeight"></canvas>
+      <canvas
+        ref="canvas"
+        :key="componentKey"
+        :width="canvasWidth"
+        :height="canvasHeight"
+      ></canvas>
       <div class="buttons-container">
         <button @click="downloadAvatar" class="download-button">
           <i class="fas fa-download"></i> Скачать
@@ -12,7 +17,7 @@
       </div>
     </main>
     <!-- mainpart   rendering is inside of AvatarPart-->
-    <template v-for="part in avatarParts">
+    <template v-for="part in avatarParts" :key="componentKey">
       <AvatarPart
         :options="part.options"
         :canvasWidth="canvasWidth"
